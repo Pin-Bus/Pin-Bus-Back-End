@@ -16,11 +16,11 @@ export class User {
   @Column({ type: "enum", enum: ["parent", "monitor"] })
   role!: "parent" | "monitor";
 
-  @OneToOne(() => Parent, (parent) => parent.user, { nullable: true })
+  @OneToOne(() => Parent, (parent) => parent.user, { nullable: false, cascade: true })
   @JoinColumn()
-  parent!: Parent | null;
+  parent!: Parent;
 
   @OneToOne(() => Monitor, (monitor) => monitor.user, { nullable: true })
   @JoinColumn()
-  monitor!: Monitor | null;
+  monitor!: Monitor;
 }

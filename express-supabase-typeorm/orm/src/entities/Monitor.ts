@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne,JoinColumn  } from "typeorm";
 import { Bus } from "./Bus";
 import { User } from "./User";
 
@@ -17,5 +17,6 @@ export class Monitor {
   bus!: Bus;
 
   @OneToOne(() => User, (user) => user.monitor)
+  @JoinColumn({ name: "user_id" }) 
   user!: User;
 }

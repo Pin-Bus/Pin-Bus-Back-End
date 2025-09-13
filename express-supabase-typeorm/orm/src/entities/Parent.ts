@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne } from "typeorm";
+import { 
+  Entity, 
+  PrimaryGeneratedColumn, 
+  Column, 
+  OneToMany, 
+  OneToOne, 
+  JoinColumn 
+} from "typeorm";
 import { Student } from "./Student";
 import { User } from "./User";
 
@@ -32,5 +39,6 @@ export class Parent {
   childrenAsFather!: Student[];
 
   @OneToOne(() => User, (user) => user.parent)
+  @JoinColumn({ name: "user_id" })   // 👈 this creates the foreign key column
   user!: User;
 }
