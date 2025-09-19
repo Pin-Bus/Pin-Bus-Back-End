@@ -18,10 +18,13 @@ export class Parent {
   name!: string;
 
   @Column()
+  email!:string;
+
+  @Column()
   phone!: string;
 
   @Column()
-  type!: "mother" | "father"; // differentiate role
+  type!: "mother" | "father"; 
 
   @Column()
   address!: string;

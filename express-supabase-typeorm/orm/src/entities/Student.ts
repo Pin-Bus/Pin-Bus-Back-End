@@ -12,7 +12,16 @@ export class Student {
 
   @Column()
   grade!: string;
+  
+  @Column()
+  class!:string;
+  
+  @Column()
+  dateOfBirth!: Date;
 
+  @Column()
+  parentsNotes : string;
+  
   @Column()
   address!: string;
 

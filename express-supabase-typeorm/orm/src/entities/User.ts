@@ -14,7 +14,7 @@ export class User {
   password!: string;
 
   @Column({ type: "enum", enum: ["parent", "monitor"] })
-  role!: "parent" | "monitor";
+  role!: "parent" | "monitor" | "admin";
 
   @OneToOne(() => Parent, (parent) => parent.user, { nullable: false, cascade: true })
   @JoinColumn()
